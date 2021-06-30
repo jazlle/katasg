@@ -30,6 +30,10 @@ public class Account {
         this.statement.printStatement();
     }
 
+    public void showAccountStatement(int quantity) {
+        this.statement.printStatement(quantity);
+    }
+
     public BigDecimal getBalance() {
         return balance;
     }

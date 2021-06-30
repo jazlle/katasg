@@ -14,10 +14,18 @@ public class Statement {
         listTransaction.add(newTransaction);
     }
 
-    public void printStatement() {
+    public void printStatement(int quantityToPrint) {
+        int index = 0;
         for(Transaction transaction: listTransaction){
+            if(++index >= quantityToPrint) {
+                break;
+            }
             System.out.println(transaction.toString());
         }
+    }
+
+    public void printStatement() {
+        printStatement(10);
     }
 
     public List<Transaction> getListTransaction() {
