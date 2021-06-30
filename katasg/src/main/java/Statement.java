@@ -9,8 +9,8 @@ public class Statement {
         listTransaction = new ArrayList<>();
     }
 
-    public void addTransaction(Date date, BigDecimal amount, BigDecimal balance) {
-        Transaction newTransaction = new Transaction(date, amount, balance);
+    public void addTransaction(Date date, BigDecimal amount, BigDecimal balance, Action action) {
+        Transaction newTransaction = new Transaction(date, amount, balance, action);
         listTransaction.add(newTransaction);
     }
 

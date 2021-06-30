@@ -12,13 +12,15 @@ class StatementTest {
         Date date = new Date();
         BigDecimal amount = new BigDecimal(100);
         BigDecimal balance = new BigDecimal(200);
+        Action action = Action.DEPOSIT;
 
-        statement.addTransaction(date, amount, balance);
+        statement.addTransaction(date, amount, balance, Action.DEPOSIT);
 
         for(Transaction transaction : statement.getListTransaction()) {
             Assertions.assertEquals(transaction.getDate(), date);
             Assertions.assertEquals(transaction.getAmount(), amount);
             Assertions.assertEquals(transaction.getBalance(), balance);
+            Assertions.assertEquals(transaction.getAction(), action);
         };
 
         Assertions.assertEquals(statement.getListTransaction().size(), 1);

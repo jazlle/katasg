@@ -14,14 +14,14 @@ public class Account {
 
     public void deposit(BigDecimal value) {
         if (Utils.isPositive(value)) {
-            statement.addTransaction(new Date(), value, balance);
+            statement.addTransaction(new Date(), value, balance, Action.DEPOSIT);
             this.balance = this.balance.add(value);
         }
     }
 
     public void withdraw(BigDecimal value) {
         if (Utils.isPositive(value) && balance.compareTo(value) >= 0) {
-            statement.addTransaction(new Date(), value, balance);
+            statement.addTransaction(new Date(), value, balance, Action.WITHDRAW);
             this.balance= this.balance.subtract(value);
         }
     }
