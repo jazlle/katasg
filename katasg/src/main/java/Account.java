@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.util.Date;
 
 public class Account {
 
@@ -12,9 +13,17 @@ public class Account {
     }
 
     public void deposit(BigDecimal value) {
+        if (Utils.isPositive(value)) {
+            statement.addTransaction(new Date(), value, balance);
+            this.balance = this.balance.add(value);
+        }
     }
 
     public void withdraw(BigDecimal value) {
+        if (Utils.isPositive(value) && balance.compareTo(value) >= 0) {
+            statement.addTransaction(new Date(), value, balance);
+            this.balance= this.balance.subtract(value);
+        }
     }
 
     public void showAccountStatement() {
